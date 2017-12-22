@@ -2,10 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="static/mdb/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="static/mdb/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="static/mdb/css/style.css" rel="stylesheet">
 </head>
 <body>
-<div id="vid-box"></div>
+
+<div class="container">
+
+    <h1>Welcome the my WebRTC project</h1>
+
+    <div id="vid-box"></div>
 
     <form name="loginForm" id="login" action="#" onsubmit="return login(this);">
         <input type="text" name="username" id="username" placeholder="Pick a username!"/>
@@ -20,45 +35,22 @@
 
     <button onclick="closeCall()">End call</button>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</div>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- PubNub -->
     <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
-    <script src="webrtc.js"></script>
-
-    <script>
-        var video_out = document.getElementById("vid-box");
-
-        function login(form) {
-            var phone = window.phone = PHONE({
-                number: form.username.value || "Anonymous", // listen on username line else Anonymous
-                publish_key: 'pub-c-c5f76359-070f-4a38-8c5f-b579ba6b78e9',
-                subscribe_key: 'sub-c-97f5ec7e-e73b-11e7-9723-66707ad51ffc',
-                ssl: true,
-            });
-            phone.ready(function () {
-                form.username.style.background = "#55ff5b";
-            });
-            phone.receive(function (session) {
-                session.connected(function (session) {
-                    video_out.appendChild(session.video);
-                });
-                session.ended(function (session) {
-                    video_out.innerHTML = '';
-                });
-            });
-
-            return false;   // So the form does not submit.
-        }
-
-        function makeCall(form) {
-            if (!window.phone) alert("Login First!");
-            else phone.dial(form.number.value);
-            return false;
-        }
-
-        function closeCall() {
-            window.phone.hangup()
-        }
-    </script>
+    <!-- WebRTC -->
+    <script src="static/js/webrtc.js"></script>
+    <!-- My scripts -->
+    <script src="static/js/main.js"></script>
 
 </body>
 </html>
