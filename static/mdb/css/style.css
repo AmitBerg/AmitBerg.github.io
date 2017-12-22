@@ -1,1 +1,5 @@
 /* Your custom styles */
+body {
+    background-image: url("../../img/hypnotize.png");
+    margin: 1rem;
+}
