@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <title>Python WebRTC</title>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -23,28 +25,36 @@
     <div id="vid-box"></div>
 
     <form name="loginForm" id="login" action="#" onsubmit="return login(this);">
-        <input type="text" name="username" id="username" placeholder="Pick a username!"/>
-        <input type="submit" name="login_submit" value="Log In">
+        <div class="md-form">
+            <i class="fa fa-user prefix grey-text"></i>
+            <input type="text" name="username" id="username" placeholder="Pick a username!"/>
+            <input style="margin-left: auto" type="submit" class="btn btn-blue-grey" name="login_submit" value="Log In">
+        </div>
     </form>
 
 
     <form name="callForm" id="call" action="#" onsubmit="return makeCall(this);">
-        <input type="text" name="number" placeholder="Enter user to dial!"/>
-        <input type="submit" value="Call"/>
+        <div class="md-form">
+            <i class="fa fa-phone prefix grey-text"></i>
+            <input type="text" name="number" placeholder="Enter user to dial!"/>
+            <input style="margin-left: auto" class="btn btn-blue-grey" type="submit" value="Call"/>
+        </div>
     </form>
 
-    <button id="end-call" style="display: none" onclick="closeCall()">End call</button>
+    <button id="end-call" class="btn btn-elegant" style="margin-left: 0; display: none" onclick="closeCall()">
+        End call
+    </button>
 
 </div>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="static/mdb/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="static/mdb/js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/mdb/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="static/mdb/js/mdb.min.js"></script>
     <!-- PubNub -->
     <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
     <!-- WebRTC -->
