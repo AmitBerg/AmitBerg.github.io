@@ -13,9 +13,11 @@ function login(form) {
     phone.receive(function (session) {
         session.connected(function (session) {
             video_out.appendChild(session.video);
+            $("#end-call").css("display", "")
         });
         session.ended(function (session) {
             video_out.innerHTML = '';
+            $("#end-call").css("display", "none")
         });
     });
 
